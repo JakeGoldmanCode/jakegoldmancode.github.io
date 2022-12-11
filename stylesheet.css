@@ -1,4 +1,14 @@
+body {
+    background-color: darkslategray;
+}
 h1 {
-    color: aquamarine;
-    text-align: center
+    color: rgb(109, 152, 221);
+    text-align: center;
+    filter: drop-shadow(0 0 0.75rem rgb(87, 84, 142));
+}
+
+.links {
+    color: rgb(109, 152, 221);
+    text-align: center;
+    filter: drop-shadow(0 0 0.75rem rgb(87, 84, 142));
 }
