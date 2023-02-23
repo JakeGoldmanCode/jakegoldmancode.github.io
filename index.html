@@ -1,28 +1,67 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta content="Weezer shit i make" property="og:title" />
+<head>
+<meta content="Weezer shit i make" property="og:title" />
         <meta content="weenie" property="og:description" />
         <meta content="#189BCC" data-react-helmet="true" name="theme-color" />
         <meta charset="utf-8">
         <link rel="stylesheet" href="stylesheet.css">
         <title>Weezer lol</title>
-    </head>
-    <body>
-        <script>
-            function weezerPage() {
-                window.open("https://weezerlol.me/weezer");
-            }
-            function n64() {
-                window.open("https://weezerlol.me/n64")
-            }
-        </script>
-        <h1>welcome to my site</h1>
-        <div id="button1">
-            <button class="block button button2 margin-auto" onclick="weezerPage()">Click for weezer page!</button>
-        </div>
-        <div id="button2">
-            <button class="block button button2 margin-auto" onclick="n64()">Click for n64 emulator!</button>
-        </div>
-    </body>
+<style>
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: black;
+  margin: 0rem;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(3rem, 10vw, 10rem);
+  color: white;
+  padding: 0rem clamp(1rem, 2vw, 3rem);
+  border-radius: clamp(0.4rem, 0.75vw, 1rem);
+}
+
+h1:hover {
+  background-color: white;
+  color: black;
+}
+</style>
+</head>
+<body>
+<h1 data-value="WEEZERLOL">WEEZERLOL</h1>
+
+<script>
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+let interval = null;
+
+document.querySelector("h1").onmouseover = event => {  
+  let iteration = 0;
+  
+  clearInterval(interval);
+  
+  interval = setInterval(() => {
+    event.target.innerText = event.target.innerText
+      .split("")
+      .map((letter, index) => {
+        if(index < iteration) {
+          return event.target.dataset.value[index];
+        }
+      
+        return letters[Math.floor(Math.random() * 26)]
+      })
+      .join("");
+    
+    if(iteration >= event.target.dataset.value.length){ 
+      clearInterval(interval);
+    }
+    
+    iteration += 1 / 3;
+  }, 30); window.location.href = "main.html";
+}
+</script>
+</body>
 </html>
