@@ -39,8 +39,6 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let interval = null;
 
 document.querySelector("h1").onmouseover = event => {  
-  wait(5000); 
-  window.location.href = "main.html";
   let iteration = 0;
   
   clearInterval(interval);
@@ -62,7 +60,7 @@ document.querySelector("h1").onmouseover = event => {
     }
     
     iteration += 1 / 3;
-  }, 30);
+  }, 30); window.location.href = "main.html";
 }
 </script>
 </body>
