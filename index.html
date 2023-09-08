@@ -1,67 +1,67 @@
-<html>
-<head>
-<meta content="Weezer shit i make" property="og:title" />
-        <meta content="weenie" property="og:description" />
-        <meta content="#189BCC" data-react-helmet="true" name="theme-color" />
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="stylesheet.css">
-        <title>Weezer lol</title>
-<style>
-body {
-  display: grid;
-  place-items: center;
-  height: 100vh;
-  background-color: black;
-  margin: 0rem;
-  overflow: hidden;
-}
 
-h1 {
-  font-family: 'Space Mono', monospace;
-  font-size: clamp(3rem, 10vw, 10rem);
-  color: white;
-  padding: 0rem clamp(1rem, 2vw, 3rem);
-  border-radius: clamp(0.4rem, 0.75vw, 1rem);
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>chrome automatic update blocker</title>
+    <script src="/script.js" defer></script>
+  </head>
+  <body style="white-space: pre-wrap; font-family: monospace">
+<h1>chrome automatic update blocker - website made by Bypassi#7037 - reuploaded by huaraina</h1>
+<h1>only works on chrome 85 or higher</h1>
+<hr>
+this method (originally found by Catakang#0987) will help you keep your chromebook downgraded (or on the current version) without automatic updates screwing you over
 
-h1:hover {
-  background-color: white;
-  color: black;
-}
-</style>
-</head>
-<body>
-<h1 data-value="WEEZERLOL">WEEZERLOL</h1>
+using onc files, you can convince your chromebook that the wifi that you're connected to is pay-to-use (like a hotspot using data), and thus it will not check for updates
 
-<script>
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+<b>i cannot guarantee that this will work on every wifi</b>
 
-let interval = null;
+<hr>
+<b>to start:</b>
 
-document.querySelector("h1").onmouseover = event => {  
-  let iteration = 0;
-  
-  clearInterval(interval);
-  
-  interval = setInterval(() => {
-    event.target.innerText = event.target.innerText
-      .split("")
-      .map((letter, index) => {
-        if(index < iteration) {
-          return event.target.dataset.value[index];
-        }
-      
-        return letters[Math.floor(Math.random() * 26)]
-      })
-      .join("");
+- go to chrome://network#state (on your school chromebook of course; if this is blocked then ur kinda screwed lol)
+
+- scroll to the bottom of the page; you should see a list of "favorite" wifis that you've connected to in the past
+
+- click the + sign next to the wifi name of each network that you commonly connect your chromebook to
     
-    if(iteration >= event.target.dataset.value.length){ 
-      clearInterval(interval);
-    }
+<b>the more wifis you expand, the better, but note that they have to come from the "favorites" section</b>
+
+- use ctrl+a and ctrl+c to copy all the text on the entire network#state page
+
+- go back to this page (caub.glitch.me)
+
+- paste the copied text into the textbox below
+
+- press the "generate onc" button below the textbox
+
+<hr /><input placeholder="read instructions!" />
     
-    iteration += 1 / 3;
-  }, 30); window.location.href = "main.html";
-}
-</script>
-</body>
+<button onclick="gen()"><b>generate and download onc file</b></button>
+
+<b>the input stuff here is new and a little hacky, if it doesn't seem to work, try the <a href="/old.html">old version</a></b><hr />
+- once you have downloaded the file, go to chrome://network#general
+
+- click on the "import onc" button
+
+- import the newly downloaded file
+
+<b>your chromebook will no longer automatically update (as long as you are on a wifi that you used caub on)
+  
+be careful not to stay on a wifi for too long without using caub on it</b>
+    
+<hr>
+<b>bonus:</b>
+
+if you did caub on a school wifi that is forced by policy, you may be able to view its password by doing the steps below:
+    
+- go to chrome://sync-internals on the chromebook
+
+- click "trigger getupdates"; the number of synced wifi configurations should go up
+
+- then go to <a href="https://www.rapidtables.com/convert/number/ascii-to-hex.html">here</a> and type in the wifi name and convert it. then append "<||>psk" to the end of the hex data. remove all spaces. then in the sync-internals site, go to search and type in \"wifi_\" and then click the one that matches your hex code. in the middle of this big bunch of code is a thing that says something along the lines of "passphrase". copy the associated value, then go <a href="https://www.base64decode.org/">here</a> to decode it. good luck!
+
+you may also be able to change the dns of the wifi from settings, but don't expect it to connect</body>
 </html>
